@@ -1,4 +1,5 @@
 .mdp-datepicker {
+    min-height: 325px;
     max-height: initial;
     min-width: 234px;
     * {
@@ -59,11 +60,13 @@
 }
 
 .mdp-calendar-monthyear {
-    font-size: 0.8125rem;
-    font-weight: bold;
+    font-weight: 500;
     line-height: 32px;
     min-height: 32px;
     //width: 100%;
+    &::first-letter {
+        text-transform: capitalize;
+    }
 }
 
 
