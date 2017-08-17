@@ -94,24 +94,17 @@ function DatePickerCtrl($scope, $mdDialog, $mdMedia, $timeout, currentDate, opti
     };
 }
 
-module.provider("$mdpDatePicker", function() {
-    var LABEL_OK = "OK",
-        LABEL_CANCEL = "Cancel",
-        DISPLAY_FORMAT = "ddd DD MMM";
-        
+module.provider("$mdpDatePicker", function() {  
+    var DISPLAY_FORMAT = "ddd DD MMM";
+
     this.setDisplayFormat = function(format) {
         DISPLAY_FORMAT = format;    
     };
-        
-    this.setOKButtonLabel = function(label) {
-        LABEL_OK = label;
-    };
-    
-    this.setCancelButtonLabel = function(label) {
-        LABEL_CANCEL = label;
-    };
-    
-    this.$get = ["$mdDialog", function($mdDialog) {
+
+    this.$get = ["$mdDialog", "$translate", function($mdDialog, $translate) {
+        var LABEL_OK = $translate.instant('LABEL_OK'),
+            LABEL_CANCEL = $translate.instant('LABEL_CANCEL');
+
         var datePicker = function(currentDate, options) {
             if (!angular.isDate(currentDate)) currentDate = Date.now();
             if (!angular.isObject(options)) options = {};

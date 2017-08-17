@@ -27,7 +27,8 @@
   ],
   "dependencies": {
     "angular": "~1.4.9",
+    "angular-translate":  "2.15.2",
     "angular-material": "~1.0.4",
     "moment": "~2.11.1"
-  }
+    }
 }
